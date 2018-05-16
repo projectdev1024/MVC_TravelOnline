@@ -1,0 +1,36 @@
+﻿
+@{
+    var session = (TravelOnline.Common.UserLogin)Session[TravelOnline.Common.CommonConstants.CUSTOMER_SESSION];
+}
+    <table width="320" border="0" style="border-left-width:1px;border-left-style:solid;border-left-color:#d7d7d7;">
+    <tr style="background:#0094ff;color:#ffffff; height:30px">
+        <td colspan="2" align="center">QUẢN TRỊ THÀNH VIÊN</td>
+    </tr>
+    <tr style="height:40px">
+
+        <td width="100px" style="padding-right:15px;font-family:Arial;text-align:right">Chào</td>
+        <td>
+            <strong>
+                @session.UserName
+            </strong>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-left: 30px; font-family: Arial;"> </td>
+
+        <td><a href="/khach-hang/cap-nhat-thong-tin"><span class="glyphicon glyphicon-wrench"></span> Hồ sơ cá nhân</a></td>
+    </tr>
+    <tr style="height:30px">
+        <td></td>
+        <td><a href="/khach-hang/tour-cua-toi"><span class="glyphicon glyphicon-plane"></span> Tour của tôi</a></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td height="50px">
+            <a href="/khach-hang/dang-xuat" class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-log-out"></span> Đăng xuất
+            </a>
+        </td>
+    </tr>
+
+</table>

@@ -1,0 +1,143 @@
+﻿@model TravelOnline.Models.DangKyModel
+@using BotDetect.Web.Mvc;
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+      rel="stylesheet" type="text/css" />
+@{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+ exampleCaptcha.UserInputID = "CaptchaCode";}
+@{
+    ViewBag.Title = "Đăng ký thành viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter
+{
+    <script>
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeYear: true,
+                showOn: "button"
+            }).css("display", "inline-block")
+            .next("button").button({
+                icons: { primary: "ui-icon-calendar" },
+                label: "Select a date",
+                text: false
+            });
+        })
+    </script>
+
+}
+
+<!-- Bootstrap Core CSS -->
+
+<h3 style="color:#ff6a00">THÔNG TIN ĐĂNG KÝ</h3>
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success">@ViewBag.Success</div>
+}
+
+@using (Html.BeginForm("Register","KhachHang",FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    
+
+    <fieldset>
+        <legend class=""></legend>
+        <div class="row">
+            <div class="col-md-11">
+                    
+      
+                    @Html.LabelFor(model => model.taikhoan, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.taikhoan, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập tài khoản" })
+                    <p></p>
+ 
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.matkhau, new { @class = "control-label" })
+                    @Html.PasswordFor(model => model.matkhau, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập mật khẩu" })
+                    <p></p>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.xacnhanmatkhau, new { @class = "control-label" })
+                    @Html.PasswordFor(model => model.xacnhanmatkhau, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập lại mật khẩu" })
+                    <p></p>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.hoten, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.hoten, new { @class = "form-control input-lg-5",@placeholder = "Vui lòng nhập họ tên" })
+                    <p></p>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.cmt, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.cmt, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập số chứng minh thư" })
+                    <p></p>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.diachi, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.diachi, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập địa chỉ" })
+                    <p></p>
+                </div>
+
+                <div class="control-group">
+
+                    @Html.LabelFor(model => model.ngaysinh, new { @class = "control-label" })
+                    <p>
+                        @Html.TextBoxFor(model => model.ngaysinh, new { @class = "textbox jqueryui-marker-datepicker"   })
+                     </p>
+                      
+<p></p>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.dienthoai, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.dienthoai, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập địa chỉ" })
+                    <p></p>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.email, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.email, new { @class = "form-control input-lg-5", @placeholder = "Vui lòng nhập email" })
+
+                    <p></p>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.gioitinh, new { @class = "control-label" })
+                    <p>
+                        @Html.DropDownListFor(model => model.gioitinh, new SelectList(
+                                    new[]
+                                    {
+                                        new { Value = "true", Text = "Nam" },
+                                        new { Value = "false", Text = "Nữ" },
+                                    },
+                                    "Value",
+                                    "Text",
+                                    Model
+                     ), new { @class = "textbox" })
+
+                    </p>
+                    <br/>
+                </div>
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        @Html.Captcha(exampleCaptcha)<br/>
+                        @Html.TextBox("CaptchaCode")
+                            </div>
+                </div>
+                <br />
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-info">Đăng ký</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br />
+    </fieldset>
+}

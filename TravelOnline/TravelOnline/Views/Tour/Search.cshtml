@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Tìm kiếm tour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var tour = (List<TravelOnline.Models.TourViewModel>)ViewBag.Tour;
+}
+
+
+<p class="box-text-button-title">Danh sách tìm kiếm</p>
+<div style="width:700px; height:1px; background:#d7d7d7; margin-left:5px;"></div>
+<div class="box-pro-home">
+    @foreach (var item in tour)
+    {
+        <div class="item-pro-home">
+            <div class="box-image-pro-home">
+                <div class="hover13 column">
+                    <div>
+                        <figure>
+                            <img src="@item.hinhanh" id="image" />
+                        </figure>
+                    </div>
+                </div>
+                @if (@item.giakhuyenmai.HasValue && @item.ketthuckm > DateTime.Today && @item.ketthuc > DateTime.Today)
+                {
+                    <p id="text">
+                        @Html.Raw(" - " + @item.giam + " %")
+                    </p>
+                }
+            </div>
+            <a href="/chi-tiet-tour/@item.metatitle-@item.matour">@item.tentour</a>
+
+
+            <div class="box-info-item">
+                <p><span class="glyphicon glyphicon-time"></span> Thời gian: @item.thoigian</p>
+                <p><span class="glyphicon glyphicon-send"></span> Khởi hành: @item.khoihanh.ToString("dd-MM-yyyy")</p>
+                <p><span class="glyphicon glyphicon-bed"></span> Số chỗ còn: @item.socho</p>
+                @{
+        if (@item.giakhuyenmai.HasValue && @item.ketthuckm > DateTime.Today && @item.ketthuc > DateTime.Today)
+        {
+            <p><del><span class="glyphicon glyphicon-usd"></span> Giá tour: @item.giatour.Value.ToString("#,###") VNĐ</del></p>
+                    <p><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Giá KM: <span style="color:#ff6a00;font-size:17px">@item.giakhuyenmai.Value.ToString("#,###") VNĐ</span></p>
+        }
+        else
+        {
+            <p><span class="glyphicon glyphicon-usd"></span> Giá tour: <span style="color:#ff6a00;font-size:17px"> @item.giatour.Value.ToString("#,###") VNĐ</span></p>
+        }
+                }
+
+            </div>
+            <div class="box-text-button">
+                <a href="/dat-tour/@item.metatitle-@item.matour" class="btn btn-primary btn-md">Đặt tour</a>
+            </div>
+        </div>
+    }
+
+
+</div>
+
+

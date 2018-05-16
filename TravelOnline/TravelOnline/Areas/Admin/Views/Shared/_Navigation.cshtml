@@ -1,0 +1,131 @@
+﻿<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Admin Control Panel</a>
+    </div>
+    <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right">
+
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                </li>
+                <li>
+                    <a href="http://localhost:50905/Admin/"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user-md"></i> Quản lý khách hàng<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/Admin/KhachHang/Create">Thêm khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/KhachHang">Danh sách khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/DatTour">Tour đã đặt</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-plane"></i> Quản lý Tour<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/Admin/Tour/">Tour</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/DiemDen/">Điểm đến</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Tour/LichKhoiHanh">Tour sắp khởi hành</a>
+                        </li>
+
+
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="#"><i class="glyphicon glyphicon-gift"></i> Quản lý khuyến mại<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/Admin/KhuyenMai/Create">Thêm khuyến mại</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/KhuyenMai">Danh sách khuyến mại</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-newspaper-o"></i> Quản lý tin tức<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/Admin/TinTuc/Create">Thêm tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/TinTuc">Danh sách tin tức</a>
+                        </li>
+
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="#"><i class="glyphicon glyphicon-bookmark"></i> Quản lý quảng cáo<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/Admin/QuangCao/Create">Thêm quảng cáo</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/QuangCao/">Danh sách quảng cáo</a>
+                        </li>
+
+
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</nav>

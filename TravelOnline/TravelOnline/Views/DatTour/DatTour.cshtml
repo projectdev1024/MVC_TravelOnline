@@ -1,0 +1,141 @@
+﻿ @{
+    double giatour,tourtreem ;
+    var detailtour = (TravelOnline.Models.TourViewModel)ViewBag.DetailTour;
+    var thongtinkhachhang = (Models.EF.tblKHACHHANG)ViewBag.ThongTinKhachHang;
+    var session = (TravelOnline.Common.UserLogin)Session[TravelOnline.Common.CommonConstants.CUSTOMER_SESSION];
+    ViewBag.Title = @detailtour.tentour+"- HaNoiTourist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Models.EF.tblDATTOUR
+<script>
+    function capnhatTienNguoiLon(giatour,tourtreem) {
+        var soNguoiLon = document.getElementById("songuoilon");
+        var soTreEm = document.getElementById("sotreem");
+        var thanhTien1 = document.getElementById("tiennguoilon");
+        var thanhTien2 = document.getElementById("tientreem");
+        var tongTien = document.getElementById("tongtien");
+        thanhTien1.innerHTML = soNguoiLon.value * giatour;
+        tongtien.innerHTML = soNguoiLon.value * giatour + soTreEm.value * tourtreem+ " VNĐ";
+    }
+
+    function capnhatTienTreEm(giatour, tourtreem) {
+        var soTreEm = document.getElementById("sotreem");
+        var soNguoiLon = document.getElementById("songuoilon");
+        var thanhTien2 = document.getElementById("tientreem");
+        var thanhTien1 = document.getElementById("tiennguoilon");
+        thanhTien2.innerHTML = soTreEm.value * tourtreem;
+        tongtien.innerHTML = soNguoiLon.value * giatour + soTreEm.value * tourtreem + " VNĐ";
+    }
+</script>
+
+    <h3>@detailtour.tentour</h3>
+    <div class="detailtour-box-info">
+        <img src="@detailtour.hinhanh" class="img-rounded" />
+        <div class="detailtour-box-info-text">
+            <p><span class="glyphicon glyphicon-time"></span> Thời gian : @detailtour.thoigian</p>
+            <p><span class="glyphicon glyphicon-send"></span> Khởi hành : @detailtour.khoihanh.ToString("dd-MM-yyyy")</p>
+            <p><span class="glyphicon glyphicon-flag"></span> Kết thúc : @detailtour.ketthuc.ToString("dd-MM-yyyy")</p>
+            <p><span class="glyphicon glyphicon-bed"></span> Số chỗ còn : @detailtour.socho</p>
+   
+               
+                @if (@detailtour.giakhuyenmai != null)
+                {
+                    giatour = (double)@detailtour.giakhuyenmai;
+                    tourtreem = (double)@detailtour.giakhuyenmai - (double)@detailtour.giakhuyenmai * 5 / 100;
+                    <del><p><span class="glyphicon glyphicon-usd"></span> Giá tour : @detailtour.giatour.Value.ToString("#,###") VNĐ</p></del>
+                    <p><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>Giá KM: <span style="color:#ff6a00;font-size:17px"> @detailtour.giakhuyenmai.Value.ToString("#,###") VNĐ</span></p>
+                }
+                else
+                {
+                    giatour = (double)@detailtour.giatour;
+                    tourtreem = (double)@detailtour.giatour - (double)@detailtour.giatour * 5 / 100;
+                    <p><span class="glyphicon glyphicon-usd"></span> Giá tour :<span style="color:#ff6a00;font-size:17px"> @detailtour.giatour.Value.ToString("#,###") VNĐ</span></p>
+                }
+     
+           
+           
+        </div>
+    </div>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger fade in" style="margin:0 10px">
+        @ViewBag.Error
+    </div>
+}
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                @using (Html.BeginForm("DatTour", "DatTour", FormMethod.Post))
+                        {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+
+                <fieldset>
+                        <legend>Bảng giá</legend>
+                        @Html.HiddenFor(model => model.matour, new { @Value=@detailtour.matour})
+                        @Html.HiddenFor(model => model.makh, new { @Value = @session.UserID })
+                        @Html.HiddenFor(model => model.ngaydattour, new { @Value =@DateTime.Today })
+                        @Html.HiddenFor(model => model.dathanhtoan, new { @Value = "false" })
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Loại khách</th>
+                                    <th>Số tiền (VNĐ)</th>
+                                    <th>Số khách</th>
+                                    <th>Thành tiền(VNĐ)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="100px">Người lớn</td>
+                                    <td>@giatour</td>
+                                    <td>@Html.TextBoxFor(model => model.songuoilon, new { @class = "form-control", id = "songuoilon", onblur = "capnhatTienNguoiLon("+@giatour+","+@tourtreem+")" })</td>
+                                    <td><label id="tiennguoilon"></label></td>
+                                </tr>
+                                <tr>
+                                    <td>Trẻ em (Từ 2-11 tuổi)</td>
+                                    <td>@tourtreem</td>
+                                    <td>@Html.TextBoxFor(model => model.sotreem, new { @class = "form-control", id = "sotreem", onblur = "capnhatTienTreEm(" + @giatour + "," + tourtreem + ")" })</td>
+                                    <td><label id="tientreem"></label></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    <legend style="text-align:right">Thành tiền: <label id="tongtien"></label></legend>
+                           
+                    <h4>Thông tin liên lạc</h4>
+
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <th>Họ và tên</th>
+                                <th>@Html.TextBoxFor(model => model.hoten, new { @class = "form-control",@Value=thongtinkhachhang.hoten })</th>
+                                <th>Số điện thoại</th>
+                                <th>@Html.TextBoxFor(model => model.dienthoai, new { @class = "form-control", @Value = thongtinkhachhang.dienthoai })</th>
+                            </tr>
+                            <tr>
+                                <td>Số CMT</td>
+                                <td>@Html.TextBoxFor(model => model.cmt, new { @class = "form-control", @Value = thongtinkhachhang.cmt })</td>
+                                <td>Địa chỉ</td>
+                                <td>@Html.TextBoxFor(model => model.diachi, new { @class = "form-control", @Value = thongtinkhachhang.diachi })</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>@Html.TextBoxFor(model => model.email, new { @class = "form-control", @Value = thongtinkhachhang.email })</td>
+                                <td>Ngày đặt tour</td>
+                                <td>@DateTime.Today.ToString("dd-MM-yyyy")</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                        <center><button type="submit" class="btn btn-success">ĐẶT TOUR</button></center>
+                        </fieldset>
+                        }
+
+                    </div></div></div>
+
+
+
+

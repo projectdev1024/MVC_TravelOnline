@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Cập nhật mật khẩu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TravelOnline.Models.CapNhatMatKhauModel
+
+<h3 style="color:#ff6a00">CẬP NHẬT LẠI MẬT KHẨU</h3>
+@if (ViewBag.Loi != null)
+{
+    <div class="alert alert-danger">
+        @Html.Raw(@ViewBag.Loi)
+    </div>
+
+}
+else if (ViewBag.ThanhCong != null)
+{
+    <div class="alert alert-success">
+        @Html.Raw(@ViewBag.ThanhCong)
+    </div>
+
+}
+else
+{
+    using (Html.BeginForm("CapNhatMatKhau", "KhachHang", new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+         @Html.HiddenFor(model => model.taikhoan, new { @class = "form-control", @Value = Request.Params["taikhoan"] })
+        <fieldset>
+            <legend></legend>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-2">
+                  
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="pwd">Mật khẩu :</label>
+                        <div class="col-sm-5">
+                            @Html.PasswordFor(model => model.matkhau, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="pwd">Xác nhận mật khẩu :</label>
+                        <div class="col-sm-5">
+                            @Html.PasswordFor(model => model.xacnhanmatkhau, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="pwd"></label>
+                        <div class="col-sm-5">
+                            <button class="btn btn-info" type="submit">Cập nhật mật khẩu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    }
+}

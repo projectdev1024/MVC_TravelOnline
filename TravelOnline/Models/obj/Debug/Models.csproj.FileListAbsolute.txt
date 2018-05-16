@@ -1,0 +1,68 @@
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\Models.dll.config
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\Models.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\Models.pdb
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\EntityFramework.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\EntityFramework.xml
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.xml
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\obj\Debug\Models.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\obj\Debug\Models.pdb
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\PagedList.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\PagedList.Mvc.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\PagedList.xml
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\bin\Debug\PagedList.Mvc.xml
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\Models.dll.config
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\Models.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\Models.pdb
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\EntityFramework.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\PagedList.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\PagedList.Mvc.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\EntityFramework.xml
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.xml
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\PagedList.xml
+H:\TourDuLich_MVC-K7\TravelOnline\Models\bin\Debug\PagedList.Mvc.xml
+H:\TourDuLich_MVC-K7\TravelOnline\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+H:\TourDuLich_MVC-K7\TravelOnline\Models\obj\Debug\Models.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Models\obj\Debug\Models.pdb
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\Models.dll.config
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\Models.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\Models.pdb
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\EntityFramework.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\PagedList.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\PagedList.Mvc.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\EntityFramework.xml
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\PagedList.xml
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\bin\Debug\PagedList.Mvc.xml
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\obj\Debug\Models.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Models\obj\Debug\Models.pdb
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\Models.dll.config
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\Models.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\Models.pdb
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\EntityFramework.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\PagedList.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\PagedList.Mvc.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.WebPages.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.Mvc.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.Razor.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.WebPages.Razor.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\EntityFramework.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\PagedList.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\PagedList.Mvc.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.WebPages.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.Mvc.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.Razor.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\bin\Debug\System.Web.WebPages.Razor.xml
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\obj\Debug\Models.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Models\obj\Debug\Models.pdb

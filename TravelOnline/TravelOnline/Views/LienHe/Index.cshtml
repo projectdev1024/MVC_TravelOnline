@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+           <style>
+               #mapCanvas {
+                   height:500px;
+               }
+           </style>
+@section jsFooter {
+    <script
+        src="https://maps.googleapis.com/maps/api/js">
+</script>
+<script>
+
+    // This example displays a marker at the center of Australia.
+    // When the user clicks the marker, an info window opens.
+
+    function initMap() {
+        var uluru = { lat: 21.0536531, lng: 105.7443065 };
+        var map = new google.maps.Map(document.getElementById('mapCanvas'), {
+            zoom: 12,
+            center: uluru
+        });
+
+        var contentString = 'Nội dung';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: 'Địa chỉ'
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+
+}
+<h3 style="color:#ff6a00">LIÊN HỆ</h3>
+<legend></legend>
+<div class="row">
+    <div class="col-md-12">
+        <p style="color:#0026ff;font-size:20px;font-weight:bold">CÔNG TY LỮ HÀNH DUONGTOURIST - TỔNG CÔNG TY DU LỊCH HÀ NỘI</p>
+
+        <p style="font-size:16px">Trụ sở: Số 18 Ngọa Long, Minh Khai, Bắc Từ Liêm, Hà Nội, Việt Nam</p>
+        <p style ="font-size: 16px; ">Hotline: 043 8266 715 - 0904 990 440 ( <i>Du lịch nước ngoài</i> )</p>
+        <p style="font-size: 16px; ">Hotline: 043 936 2276 - 0904 929 252 ( <i>Du lịch trong nước</i> )</p>
+        <p style="font-size: 16px; ">FAX: 04 6260 6777 - Website: <a href="www.hanoitourist.vn">www.duongtourist.vn</a></p>
+      
+
+</div>
+    <div class="col-md-9">
+        <h3 style="color:#ff6a00">BẢN ĐỒ</h3>
+        <div class="map" id="mapCanvas">
+
+        </div>
+    </div>
+</div>

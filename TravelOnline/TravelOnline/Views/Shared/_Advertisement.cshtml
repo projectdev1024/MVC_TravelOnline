@@ -1,0 +1,15 @@
+﻿@{
+    var quangcao = (List<Models.EF.tblQUANGCAO>)ViewBag.QuangCao;
+}
+
+    <table width="320" border="0">
+        <tr style="background:#0094ff;color:#ffffff; height:30px">
+            <td colspan="2" align="center">QUẢNG CÁO</td>
+        </tr>
+        @foreach (var item in quangcao)
+        {
+        <tr>
+            <td colspan="2" align="center"><a href="@item.url" title="@item.tenqc"><img style="width: 320px" src="@item.urlanh" /></a></td>
+        </tr>   
+        } 
+    </table>

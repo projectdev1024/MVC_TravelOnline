@@ -1,0 +1,113 @@
+﻿@model Models.EF.tblKHACHHANG
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header
+{
+    Thêm khách hàng
+}
+
+@section jsFooter
+{
+    <script>
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeYear: true,
+                showOn: "button"
+            }).css("display", "inline-block")
+            .next("button").button({
+                icons: { primary: "ui-icon-calendar" },
+                label: "Select a date",
+                text: false
+            });
+        })
+    </script>
+
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Nhập thông tin người dùng
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        @using (Html.BeginForm("Create", "KhachHang", FormMethod.Post))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false,"", new { @class = "text-danger" })
+
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.taikhoan)
+                                    @Html.TextBoxFor(model => model.taikhoan, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.matkhau)
+                                    @Html.PasswordFor(model => model.matkhau, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.hoten)
+                                    @Html.TextBoxFor(model => model.hoten, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.cmt)
+                                    @Html.TextBoxFor(model => model.cmt, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.diachi)
+                                    @Html.TextBoxFor(model => model.diachi, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.ngaysinh) &nbsp;
+                                    @Html.TextBoxFor(model => model.ngaysinh, new { @class = "textbox jqueryui-marker-datepicker" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.dienthoai)
+                                    @Html.TextBoxFor(model => model.dienthoai, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.email)
+                                    @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.gioitinh)
+                                    @Html.DropDownListFor(model => model.gioitinh, new SelectList(
+                                    new[]
+                                    {
+                                        new { Value = "true", Text = "Nam" },
+                                        new { Value = "false", Text = "Nữ" },
+                                    },
+                                    "Value",
+                                    "Text",
+                                    Model
+                                 ), new { @class = "form-control" })
+                                </div>
+
+
+                                <p>
+                                    <button type="submit" class="btn btn-info">Thêm mới</button>
+
+                                </p>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

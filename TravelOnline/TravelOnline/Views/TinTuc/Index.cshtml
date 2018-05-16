@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PagedList.IPagedList<Models.EF.tblTINTUC>
+@using PagedList.Mvc;
+
+<p class="box-text-button-title">Tin tức mới nhất</p>
+<div style="width:700px; height:1px; background:#d7d7d7; margin-left:5px;"></div>
+<div class="box-pro-news">
+    @foreach (var item in Model)
+    {
+        <div class="item-pro-news">
+            <div class="box-image-pro-news">
+                <img src="@item.hinhanh" />
+            </div>
+            <div class="box-info-news">
+                <a href="/chi-tiet-tin-tuc/@item.metatitle-@item.matin">@item.tieude</a>
+                <p><span class="glyphicon glyphicon-calendar"></span> Ngày đăng : @item.ngaydang.Value.ToString("dd-MM-yyyy")</p>
+                <p>@item.tomtat</p>
+            </div>
+            <a style="float:right; margin-right:20px; text-decoration:none" href="/chi-tiet-tin-tuc/@item.metatitle-@item.matin">Xem thêm>>></a>
+        </div>
+        
+   
+        
+    }
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

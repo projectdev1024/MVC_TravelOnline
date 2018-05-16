@@ -1,0 +1,44 @@
+﻿<div class="box-search">
+    <div class="alert alert-info">
+        <div style="margin-left:80px;margin-bottom:10px;">
+            <input type="radio" name="radio" data-id="1" class="rdtrongnuoc" value="radio" />
+            Trong nước
+            <input style="margin-left:10px" type="radio" data-id="0" name="radio" class="rdnuocngoai" value="radio" />
+            Nước ngoài
+        </div>
+        @using (Html.BeginForm("Search", "Tour", FormMethod.Post))
+        {
+            <table border="0">
+                <tr>
+                    @*<td width="83">Điểm đến</td>
+                        <td width="172">
+                            <label for="textfield"></label>
+                            <input type="text" name="textfield" id="textfield" />
+                        </td>*@
+                    <td width="70">Điểm đến</td>
+                    <td width="170">
+                        <label for="select"></label>
+                        <select class="textbox" name="diemden" id="diemden" style="width:150px">
+                            <option value="0">--Điểm đến--</option>
+                        </select>
+                    </td>
+                    <td width="60">Giá tour</td>
+                    <td>
+                        <label for="select"></label>
+                        <select  class="textbox" name="giatour" id="giatour">
+                            <option value="0">--Giá tour--</option>
+                            <option value="1">1.000.000 - 5.000.000</option>
+                            <option value="2">5.000.000 - 10.000.000</option>
+                            <option value="3">10.000.000 - 20.000.000</option>
+                            <option value="4">20.000.000 - 40.000.000</option>
+                        </select>
+                    </td>
+                    <td width="120">Lịch khởi hành</td>
+                    <td width="120"><input  style="width:80px" type="text" name="khoihanh" class="textbox jqueryui-marker-datepicker"  /></td>
+                    <td width="120"><button type="submit" class="btn btn-primary btn-sm">Tìm kiếm</button></td>
+                </tr>
+            </table>
+        }
+        </div>
+    </div>
+

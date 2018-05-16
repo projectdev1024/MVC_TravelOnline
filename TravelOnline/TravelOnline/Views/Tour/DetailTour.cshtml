@@ -1,0 +1,44 @@
+﻿
+@{
+    var detailtour = (TravelOnline.Models.TourViewModel)ViewBag.DetailTour;
+    ViewBag.Title = @detailtour.tentour + "- HaNoiTourist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h3>@detailtour.tentour</h3>
+<legend></legend>
+<div class="detailtour-box-info">
+    <img src="@detailtour.hinhanh" class="img-rounded" />
+    <div class="detailtour-box-info-text">
+        <p><span class="glyphicon glyphicon-time"></span> Thời gian : @detailtour.thoigian</p>
+        <p><span class="glyphicon glyphicon-send"></span> Khởi hành : @detailtour.khoihanh.ToString("dd-MM-yyyy")</p>
+        <p><span class="glyphicon glyphicon-flag"></span> Kết thúc : @detailtour.ketthuc.ToString("dd-MM-yyyy")</p>
+        <p><span class="glyphicon glyphicon-bed"></span> Số chỗ còn : @detailtour.socho</p>
+
+
+        @if (@detailtour.giakhuyenmai != null)
+        {
+          
+            <del><p><span class="glyphicon glyphicon-usd"></span> Giá tour : @detailtour.giatour.Value.ToString("#,###") VNĐ</p></del>
+            <p><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Giá KM : <span style="color:#ff6a00;font-size:17px">@detailtour.giakhuyenmai.Value.ToString("#,###") VNĐ</span></p>
+        }
+        else
+        {
+          
+            <p><span class="glyphicon glyphicon-usd"></span> Giá tour : <span style="color:#ff6a00;font-size:17px">@detailtour.giatour.Value.ToString("#,###") VNĐ</span></p>
+        }
+
+
+
+    </div>
+
+</div>
+@Html.Raw(System.Web.HttpUtility.HtmlDecode(@detailtour.chitiettour))
+<center>
+    <div class="btn-group">
+        <a class="btn btn-primary" href="/dat-tour/@detailtour.metatitle-@detailtour.matour"><span class=" glyphicon glyphicon-shopping-cart"></span> Đặt Tour</a>
+        <a class="btn btn-info" href="/"><span class="glyphicon glyphicon-home"></span> Trang chủ</a>
+    </div>
+</center>
+<br />

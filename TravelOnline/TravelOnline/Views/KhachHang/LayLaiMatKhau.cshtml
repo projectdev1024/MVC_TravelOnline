@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Lấy lại mật khẩu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TravelOnline.Models.LayLaiMatKhauModel
+
+<h3 style="color:#ff6a00">LẤY LẠI MẬT KHẨU</h3>
+@if(ViewBag.Loi!=null)
+{
+    <div class="alert alert-danger">
+  @Html.Raw(@ViewBag.Loi);
+</div>
+
+}
+else if (ViewBag.ThanhCong != null)
+{
+    <div class="alert alert-success">
+        @Html.Raw(@ViewBag.ThanhCong);
+    </div>
+
+}
+else
+{
+    using (Html.BeginForm("LayLaiMatKhau", "KhachHang", new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <fieldset>
+        <legend></legend>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-3">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Tài khoản:</label>
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(model => model.taikhoan, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Email:</label>
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd"></label>
+                    <div class="col-sm-4">
+                        <button class="btn btn-info" type="submit">Lấy lại mật khẩu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+}
+}
+

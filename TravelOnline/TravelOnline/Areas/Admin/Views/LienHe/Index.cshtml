@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model Models.EF.tblLIENHE
+@section header
+{
+    Liên hệ
+}
+@Html.Raw(Model.noidung)
+<br/><br />
+<a class="btn btn-info" href="/Admin/LienHe/Edit">Sửa thông tin</a>

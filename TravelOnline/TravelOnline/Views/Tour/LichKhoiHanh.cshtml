@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Lịch khởi hành";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listLichKhoiHanh = (List<Models.EF.tblTOUR>)ViewBag.LichKhoiHanh;
+}
+
+<p class="box-text-button-title">Lịch khởi hành</p>
+<div style="width:700px; height:1px; background:#d7d7d7; margin-left:5px;"></div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên tour</th>
+            <th>Thời gian</th>
+            <th>Khởi hành</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in listLichKhoiHanh)
+        {
+            <tr class="success">
+                <td><a href="/chi-tiet-tour/@item.metatitle-@item.matour"><span class="glyphicon glyphicon-play-circle"></span> @item.tentour</a></td>
+                <td>@item.thoigian</td>
+                <td>@item.khoihanh.ToString("dd/MM/yyyy")</td>
+                <td><a class="btn btn-primary btn-sm" href="/dat-tour/@item.metatitle-@item.matour">Đặt tour</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

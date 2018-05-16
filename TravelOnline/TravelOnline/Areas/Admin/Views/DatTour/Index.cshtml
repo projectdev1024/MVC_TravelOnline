@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var tourdangxuly = (List<Models.ViewModel.DatTourViewModel>)ViewBag.TourChuaThanhToan;
+}
+@section header
+{
+    Danh sách tour đang chở xử lý
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông tin Tour chờ xét duyệt
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tên tour</th>
+                                <th>Tên khách hàng</th>
+                                <th>Địa chỉ</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Tình trạng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in tourdangxuly)
+                            {
+                                <tr>
+                                    <td>@item.tentour</td>
+                                    <td>@item.hoten</td>
+                                    <td>@item.email</td>
+                                    <td>@item.dienthoai</td>
+                                    <td>
+                                    <p style="color:#ff0000">Đang xử lý</p>
+                                   
+                                    </td>
+                                    <td><a href="/Admin/DatTour/ChiTietDatTour/@item.madattour" class="btn btn-info">Xem chi tiết</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))*@
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+</div>

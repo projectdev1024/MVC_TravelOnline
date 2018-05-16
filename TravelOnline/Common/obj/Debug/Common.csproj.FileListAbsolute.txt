@@ -1,0 +1,20 @@
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Common\bin\Debug\Common.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Common\bin\Debug\Common.pdb
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Common\obj\Debug\Common.dll
+F:\DHCN\Báo cáo thực tập\TravelProject\TravelOnline\Common\obj\Debug\Common.pdb
+H:\TourDuLich_MVC-K7\TravelOnline\Common\bin\Debug\Common.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Common\bin\Debug\Common.pdb
+H:\TourDuLich_MVC-K7\TravelOnline\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+H:\TourDuLich_MVC-K7\TravelOnline\Common\obj\Debug\Common.dll
+H:\TourDuLich_MVC-K7\TravelOnline\Common\obj\Debug\Common.pdb
+C:\Users\Simplify V2\Downloads\TravelOnline\Common\bin\Debug\Common.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Common\bin\Debug\Common.pdb
+C:\Users\Simplify V2\Downloads\TravelOnline\Common\obj\Debug\Common.dll
+C:\Users\Simplify V2\Downloads\TravelOnline\Common\obj\Debug\Common.pdb
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Common\bin\Debug\Common.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Common\bin\Debug\Common.pdb
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Common\obj\Debug\Common.dll
+D:\FLANCER\C#\TEMP\asp\asp\TravelOnline\Common\obj\Debug\Common.pdb

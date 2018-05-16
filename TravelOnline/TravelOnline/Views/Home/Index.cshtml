@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Công ty du lịch hàng đầu Việt Nam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listNewTour = (List<TravelOnline.Models.TourViewModel>)ViewBag.NewTour;
+    var listTourGanDay = (List<Models.EF.tblTOUR>)ViewBag.TourGanDay;
+    var listNews = (List<Models.EF.tblTINTUC>)ViewBag.News;
+}
+<p class="box-text-button-title">Tour sắp khởi hành</p>
+<div style="width:700px; height:1px; background:#d7d7d7; margin-left:5px;"></div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên tour</th>
+            <th>Thời gian</th>
+            <th>Khởi hành</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in listTourGanDay)
+    {
+        <tr class="success">
+            <td><a href="/chi-tiet-tour/@item.metatitle-@item.matour"><span class="glyphicon glyphicon-play-circle"></span> @item.tentour</a></td>
+            <td>@item.thoigian</td>
+            <td>@item.khoihanh.ToString("dd/MM/yyyy")</td>
+            <td><a class="btn btn-primary btn-sm" href="/dat-tour/@item.metatitle-@item.matour">Đặt tour</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+
+<p class="box-text-button-title">Tour mới nhất</p>
+<div style="width:700px; height:1px; background:#d7d7d7; margin-left:5px;"></div>
+<div class="box-pro-home">
+    @foreach (var item in listNewTour)
+    {
+        <div class="item-pro-home">
+            <div class="box-image-pro-home">
+                <div class="hover13 column">
+                    <div>
+                        <figure>
+                            <img src="@item.hinhanh" id="image" />
+                        </figure>
+                    </div>
+                </div>
+                            @if (@item.giakhuyenmai.HasValue && @item.ketthuckm > DateTime.Today && @item.ketthuc > DateTime.Today)
+                    {
+                                <p id="text">
+                                    @Html.Raw(" - " + @item.giam + " %")
+                                </p>
+                    }
+                    else
+                            {
+                               <p></p> 
+                            }
+                   
+                </div>
+            <a href="/chi-tiet-tour/@item.metatitle-@item.matour">@item.tentour</a>
+            <div class="box-info-item">
+                <p><span class="glyphicon glyphicon-time"></span> Thời gian: @item.thoigian</p>
+                <p><span class="glyphicon glyphicon-send"></span> Khởi hành: @item.khoihanh.ToString("dd-MM-yyyy")</p>
+                <p><span class="glyphicon glyphicon-bed"></span> Số chỗ còn: @item.socho</p>
+                @{
+        if (@item.giakhuyenmai.HasValue && @item.ketthuckm > DateTime.Today && @item.ketthuc > DateTime.Today)
+        {
+            <p><del><span class="glyphicon glyphicon-usd"></span> Giá tour: @item.giatour.Value.ToString("#,###") VNĐ</del></p>
+                    <p><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Giá KM: <span style="color:#ff6a00;font-size:17px">@item.giakhuyenmai.Value.ToString("#,###") VNĐ</span></p>
+        }
+        else
+        {
+            <p><span class="glyphicon glyphicon-usd"></span> Giá tour: <span style="color:#ff6a00;font-size:17px"> @item.giatour.Value.ToString("#,###") VNĐ</span></p>
+        }
+                }
+
+            </div>
+            <div class="box-text-button">
+
+                <a href="/dat-tour/@item.metatitle-@item.matour" class="btn btn-primary btn-md">Đặt tour</a>
+            </div>
+        </div>
+    }
+
+
+</div>
+<p class="box-text-button-title">Tin tức mới nhất</p>
+<div style="width:700px; height:1px; background:#d7d7d7; margin-left:5px;"></div>
+<div class="box-pro-news">
+    @foreach (var item in listNews)
+    {
+        <div class="item-pro-news">    
+            <div class="box-image-pro-news">
+                <img src="@item.hinhanh" />
+            </div>
+            <div class="box-info-news">
+                <a href="/chi-tiet-tin-tuc/@item.metatitle-@item.matin">@item.tieude</a>
+                <p> <span class="glyphicon glyphicon-calendar"></span> Ngày đăng : @item.ngaydang.Value.ToString("dd-MM-yyyy")</p>
+                <p>@item.tomtat</p>
+            </div>
+            <a style="float:right; margin-right:20px; text-decoration:none" href="/chi-tiet-tin-tuc/@item.metatitle-@item.matin">Xem thêm>>></a>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "SuaTour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var thongtindattour = (Models.ViewModel.DatTourViewModel)ViewBag.TTDatTour;
+}
+@model Models.EF.tblDATTOUR
+<h3 style="color:#ff6a00">SỬA THÔNG TIN TOUR</h3>
+<legend></legend>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger fade in" style="margin:0 10px">
+        @ViewBag.Error
+    </div>
+}
+@using (Html.BeginForm("SuaTour", "DatTour", FormMethod.Post))
+                        {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+     @Html.HiddenFor(model => model.madattour, new { @Value = @thongtindattour.madattour })
+     @Html.HiddenFor(model => model.matour, new { @Value = @thongtindattour.matour })
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tên tour</th>
+                    <th colspan="2">@thongtindattour.tentour</th>
+                    <th>Ngày đặt</th>
+                    <th>@thongtindattour.ngaydattour.ToString("dd-MM-yyyy")</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td width="150px">Ngày khởi hành</td>
+                    <td>@thongtindattour.ngaykhoihanh.ToString("dd-MM-yyyy")</td>
+                    <td>Ngày kết thúc</td>
+                    <td>@thongtindattour.ngayketthuc.ToString("dd-MM-yyyy")</td>
+
+                </tr>
+                <tr>
+                    <td width="150px">Số người lớn</td>
+                    <td>@Html.TextBoxFor(model => model.songuoilon, new { @class = "form-control", @Value = thongtindattour.songuoilon })</td>
+                    <td>Số trẻ em</td>
+                    <td>@Html.TextBoxFor(model => model.sotreem, new { @class = "form-control",@Value=thongtindattour.sotreem })</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="3">Thông tin người đại diện</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td width="150px">Họ tên</td>
+                        <td>@Html.TextBoxFor(model => model.hoten, new { @class = "form-control", @Value = thongtindattour.hoten })</td>
+                        <td>Số CMT</td>
+                        <td>@Html.TextBoxFor(model => model.cmt, new { @class = "form-control", @Value = thongtindattour.cmt })</td>
+
+                    </tr>
+                    <tr>
+                        <td width="150px">Địa chỉ</td>
+                        <td>@Html.TextBoxFor(model => model.diachi, new { @class = "form-control", @Value = thongtindattour.diachi })</td>
+                        <td>Email</td>
+                        <td>@Html.TextBoxFor(model => model.email, new { @class = "form-control", @Value = thongtindattour.email })</td>
+                    </tr>
+                    <tr>
+                        <td width="150px">Số điện thoại</td>
+                        <td>@Html.TextBoxFor(model => model.dienthoai, new { @class = "form-control", @Value = thongtindattour.dienthoai })</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <br />
+        <center><button class="btn btn-info" type="submit" >Sửa tour</button>   <a href="/" class="btn btn-info" >Trang chủ</a></center>
+</div>
+    </div>
+}

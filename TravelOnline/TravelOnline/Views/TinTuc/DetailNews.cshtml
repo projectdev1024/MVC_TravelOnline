@@ -1,0 +1,12 @@
+﻿@model Models.EF.tblTINTUC
+@{
+    ViewBag.Title = "DetailNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.tieude</h3>
+<legend></legend>
+<p><i>Ngày đăng : @Model.ngaydang.Value.ToString("dd-MM-yyyy")</i></p>
+@Html.Raw(System.Web.HttpUtility.HtmlDecode(@Model.noidung))
+<br/>
+

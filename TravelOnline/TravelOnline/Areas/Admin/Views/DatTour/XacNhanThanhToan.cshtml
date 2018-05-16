@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "XacNhanThanhToan";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var tourdathanhtoan = (Models.ViewModel.DatTourViewModel)ViewBag.TourDaThanhToan;
+}
+
+@section header
+{
+    Thông tin đặt tour
+}
+<div class="alert alert-success">
+    <strong>Xác nhận thanh toán thành công !</strong>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tên tour</th>
+                    <th colspan="2">@tourdathanhtoan.tentour</th>
+                    <th>Ngày đặt</th>
+                    <th>@tourdathanhtoan.ngaydattour.ToString("dd-MM-yyyy")</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td width="150px">Ngày khởi hành</td>
+                    <td>@tourdathanhtoan.ngaykhoihanh.ToString("dd-MM-yyyy")</td>
+                    <td>Ngày kết thúc</td>
+                    <td>@tourdathanhtoan.ngayketthuc.ToString("dd-MM-yyyy")</td>
+
+                </tr>
+                <tr>
+                    <td width="150px">Số người lớn</td>
+                    <td>@tourdathanhtoan.songuoilon</td>
+                    <td>Số trẻ em</td>
+                    <td>@tourdathanhtoan.sotreem</td>
+                </tr>
+                <tr>
+                    <td width="150px">Tổng tiền</td>
+                    <td>@tourdathanhtoan.tongtien</td>
+                    <td>Tình trạng</td>
+                    <td><p style="color:#0094ff">Đang thanh toán</p></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="3">Thông tin người đại diện</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td width="150px">Họ tên</td>
+                        <td>@tourdathanhtoan.hoten</td>
+                        <td>Số CMT</td>
+                        <td>@tourdathanhtoan.cmt</td>
+
+                    </tr>
+                    <tr>
+                        <td width="150px">Địa chỉ</td>
+                        <td>@tourdathanhtoan.diachi</td>
+                        <td>Email</td>
+                        <td>@tourdathanhtoan.email</td>
+                    </tr>
+                    <tr>
+                        <td width="150px">Số điện thoại</td>
+                        <td>@tourdathanhtoan.dienthoai</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <center><a href="/Admin" class="btn btn-info">Trang Chủ</a></center>
+            </div>
+            </div>

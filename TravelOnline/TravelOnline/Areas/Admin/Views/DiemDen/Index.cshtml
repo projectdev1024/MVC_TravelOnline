@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<Models.EF.tblDIEMDEN>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header
+{
+    Danh sách điểm đến
+}
+<a href="/Admin/DiemDen/Create" style="float:right; margin: 5px 10px 5px 0px" class="btn btn-info">Thêm mới</a>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông tin chi tiết điểm đến
+            </div>
+            
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+
+                                <th>id</th>
+                                <th>Điểm đến</th>
+                                <th>Loại tour</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.madd">
+                                    <td>@item.madd</td>
+                                    <td>@item.diemden</td>
+                                    <td>@item.loaitour</td>
+                                    <td width="50px"><a href="/Admin/DiemDen/Edit/@item.madd">Sửa</a></td>
+                                    <td width="50px">
+
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.madd }, new AjaxOptions
+                            {
+                                Confirm = "Bạn có muốn xóa bản ghi này?",
+                                OnComplete = "$('#row_" + @item.madd + "').remove()",
+                                HttpMethod = "Delete"
+                            })
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+﻿@{
+    var session = (TravelOnline.Common.ThongTinDatTour)Session[TravelOnline.Common.CommonConstants.DATTOUR_SESSION];
+    var detailtour = (TravelOnline.Models.TourViewModel)ViewBag.DetailTour;
+    double gianguoilon,giatreem,tgianguoilon,tgiatreem;
+    if (detailtour.giakhuyenmai!=null)
+    {
+        gianguoilon = detailtour.giakhuyenmai.Value;
+        giatreem = detailtour.giakhuyenmai.Value - detailtour.giakhuyenmai.Value * 5 / 100;
+        tgianguoilon = gianguoilon * session.songuoilon.Value;
+        tgiatreem = giatreem * session.sotreem.Value;
+        
+    }
+    else
+    {
+        gianguoilon = detailtour.giatour.Value;
+        giatreem = detailtour.giatour.Value - detailtour.giatour.Value * 5 / 100;
+        tgianguoilon = gianguoilon * session.songuoilon.Value;
+        tgiatreem = giatreem * session.sotreem.Value;
+    }
+    
+    ViewBag.Title = "Đặt tour thành công";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@detailtour.tentour</h3>
+<div class="detailtour-box-info">
+    <img src="@detailtour.hinhanh" class="img-rounded" />
+    <div class="detailtour-box-info-text">
+        <p><span class="glyphicon glyphicon-time"></span> Thời gian : @detailtour.thoigian</p>
+        <p><span class="glyphicon glyphicon-send"></span> Khởi hành : @detailtour.khoihanh.ToString("dd-MM-yyyy")</p>
+        <p><span class="glyphicon glyphicon-flag"></span> Kết thúc : @detailtour.ketthuc.ToString("dd-MM-yyyy")</p>
+        <p><span class="glyphicon glyphicon-bed"></span> Số chỗ còn : @detailtour.socho</p>
+
+
+        @if (@detailtour.giakhuyenmai != null)
+        {
+          
+            <del><p><span class="glyphicon glyphicon-usd"></span> Giá tour : @detailtour.giatour VNĐ</p></del>
+            <p><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Giá khuyến mại : @detailtour.giakhuyenmai VNĐ</p>
+        }
+        else
+        {
+          
+            <p><span class="glyphicon glyphicon-usd"></span> Giá tour : @detailtour.giatour VNĐ</p>
+        }
+
+    </div>
+</div>
+<div class="alert alert-success" style="margin:0px 20px 10px 20px">
+    <center>
+        <p><h3><strong>Đặt tour thành công!</strong></h3></p> <p>Thông tin tour của bạn đang được xử lý . Chúng tôi sẽ liên hệ lại với bạn trong thời gian gần nhất</p>
+    </center>
+</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Loại khách</th>
+                            <th>Giá vé</th>
+                            <th>Số khách</th>
+                            <th>Thành tiền(VNĐ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="100px">Người lớn</td>
+                            <td>@gianguoilon</td>
+                            <td>@session.songuoilon</td>
+                            <td>@tgianguoilon</td>
+                        </tr>
+                        <tr>
+                            <td>Trẻ em (Từ 2-11 tuổi)</td>
+                            <td>@giatreem</td>
+                            <td>@session.sotreem</td>
+                            <td>@tgiatreem</td>
+                    </tr>
+
+                </tbody>
+            </table>
+<p style="text-align:right">Thành tiền: <label>@session.tongtien VNĐ</label></p>
+            </div>
+        <h4>Thông tin liên lạc</h4>
+
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>@session.hoten</th>
+                    <th>Số điện thoại</th>
+                    <th>@session.dienthoai</th>
+                </tr>
+                <tr>
+                    <td>Số CMT</td>
+                    <td>@session.cmt</td>
+                    <td>Địa chỉ</td>
+                    <td>@session.diachi</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@session.email</td>
+                    <td>Ngày đặt tour</td>
+                    <td>@DateTime.Today.ToString("dd-MM-yyyy")</td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+<center><a class="btn btn-info" href="/">Trang chủ</a></center>
+<br />
+@{
+    Session[TravelOnline.Common.CommonConstants.DATTOUR_SESSION] = null;
+}

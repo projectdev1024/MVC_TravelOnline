@@ -1,0 +1,149 @@
+﻿@model TravelOnline.Models.CapNhatThongTinModel
+
+@{
+    ViewBag.Title = "Cập nhật thông tin cá nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var thongtinkhachhang = (Models.EF.tblKHACHHANG)ViewBag.ThongTinKhachHang;
+}
+
+@section jsFooter
+{
+    <script>
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeYear: true,
+                showOn: "button"
+            }).css("display", "inline-block")
+            .next("button").button({
+                icons: { primary: "ui-icon-calendar" },
+                label: "Select a date",
+                text: false
+            });
+        })
+    </script>
+}
+
+<h3 style="color:#ff6a00">CẬP NHẬT THÔNG TIN</h3>
+@if (ViewBag.Success != null)
+{
+    <div class="alert alert-success">@ViewBag.Success</div>
+}
+
+@using (Html.BeginForm("UpdateProfile", "KhachHang", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+
+    <fieldset>
+        @Html.HiddenFor(model => model.makh, new { @Value = thongtinkhachhang.makh })
+        @Html.HiddenFor(model => model.taikhoan, new { @Value = thongtinkhachhang.taikhoan })
+        <legend></legend>
+        <div class="row">
+            <div class="col-lg-7">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Thay đổi mật khẩu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="140px">Mật khẩu cũ</td>
+                            <td>@Html.PasswordFor(model => model.matkhaucu, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td width="140px">Mật khẩu mới</td>
+                            <td>@Html.PasswordFor(model => model.matkhau, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <td width="140px">Xác nhận mật khẩu</td>
+                            <td>@Html.PasswordFor(model => model.xacnhanmatkhau, new { @class = "form-control" })</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Cập nhật thông tin cá nhân</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="140px">Họ tên</td>
+                            <td>@Html.TextBoxFor(model => model.hoten, new { @class = "form-control", @Value = thongtinkhachhang.hoten })</td>
+                            <td width="140px">Số CMT</td>
+                            <td>@Html.TextBoxFor(model => model.cmt, new { @class = "form-control", @Value = thongtinkhachhang.cmt })</td>
+                        </tr>
+                        <tr>
+                            <td width="140px">Địa chỉ</td>
+                            <td>@Html.TextBoxFor(model => model.diachi, new { @class = "form-control", @Value = thongtinkhachhang.diachi })</td>
+                            <td width="140px">Điện thoại</td>
+                            <td>@Html.TextBoxFor(model => model.dienthoai, new { @class = "form-control", @Value = thongtinkhachhang.dienthoai })</td>
+                        </tr>
+                        <tr>
+                            <td width="140px">Email</td>
+                            <td>@Html.TextBoxFor(model => model.email, new { @class = "form-control", @Value = thongtinkhachhang.email })</td>
+                            <td width="140px">Giới tính</td>
+                            <td>
+                                <p>
+                                    @if (thongtinkhachhang.gioitinh==true)
+                                    {
+                                          @Html.DropDownListFor(model => model.gioitinh, new SelectList(
+                                    new[]
+                                    {
+
+                                            new { Value = "true", Text = "Nam" },
+                                            new { Value = "false", Text = "Nữ" },
+                                   
+                                        
+                                    },
+                                    "Value",
+                                    "Text",
+                                    Model
+                     ), new { @class = "textbox",@Value="false", @text="Nữ" })
+                                    }
+                                    else
+                                    {
+                                          @Html.DropDownListFor(model => model.gioitinh, new SelectList(
+                                    new[]
+                                    {
+                                            new { Value = "false", Text = "Nữ" },
+                                            new { Value = "true", Text = "Nam" },
+                                            
+                                   
+                                        
+                                    },
+                                    "Value",
+                                    "Text",
+                                    Model
+                     ), new { @class = "textbox",@Value="false", @text="Nữ" })
+                                    }
+                                  
+
+                                </p>
+                                
+                                </td>
+                        </tr>
+                        <tr>
+                            <td width="140px">Ngày sinh</td>
+                            <td colspan="3">@Html.TextBoxFor(model => model.ngaysinh, "{0:yyyy-MM-dd}", new { @class = "textbox jqueryui-marker-datepicker", @Value = thongtinkhachhang.ngaysinh.Value.ToString("yyyy-MM-dd") })</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p>
+            <center><button type="submit" class="btn btn-success">Cập nhật</button></center>
+        </p>
+    </fieldset>
+}

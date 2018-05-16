@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/Assets/client/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Assets/admin/css/style.css" rel="stylesheet" />
+    <link href="/Content/themes/base/all.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div class="main">
+        <div class="head">
+           
+            <div id="head-top">
+                @{
+                    var session = (TravelOnline.Common.UserLogin)Session[TravelOnline.Common.CommonConstants.CUSTOMER_SESSION];
+                } 
+                   <p><a href="/gioi-thieu">Giới thiệu về Duongtourist</a> | <a href="/lien-he"> Liên hệ</a></p>
+            <img src="/Images/face.png" /> <img src="/Images/youtube.png" /> <img src="/Images/google.png" /> <img src="/Images/twitter.png" /> <img src="/Images/print.png" />
+            </div>
+            <a href="/" id="logo"><img src="/Images/logo.png" height="90" alt="Smiley face"> </a>
+          
+        </div>
+        <div id="menu">
+                <ul>
+                    <li><a href="/">Trang Chủ</a></li>
+                    <li><a href="/tour-nuoc-ngoai/">Du Lịch Nước Ngoài</a></li>
+                    <li><a href="/tour-trong-nuoc/">Du Lịch Trong Nước</a></li>
+                    <li><a href="/lich-khoi-hanh/">Lịch Khởi Hành</a></li>
+                    <li><a href="/tour-khuyen-mai/"> Khuyến Mại</a></li>
+                    <li><a href="/tin-tuc/">Tin Tức</a></li>
+                    <li><a href="/lien-he">Liên Hệ</a></li>
+
+                </ul>
+            </div>
+        
+        <div class="content">
+            
+                @RenderPage("_Search.cshtml")   
+            <div class="content-left">
+                @RenderBody()
+            </div>
+            <div class="content-right">
+                @if (session == null)
+                {
+                   
+                    <p style="margin:5px">Bạn chưa có tài khoản ?<br/> Vui lòng nhấn vào <a href="/khach-hang/dang-ky">đây</a> để đăng ký</p>
+                     <center><button class="btn btn-success" onclick="location.href ='/khach-hang/dang-nhap'">Đăng nhập</button></center>
+                <br />
+                }
+                else { 
+                    @RenderPage("_Customer.cshtml")
+                }
+                
+
+                @RenderPage("_Support.cshtml")
+              
+                @RenderPage("_Advertisement.cshtml")
+                <br />
+                @RenderPage("_Statistical.cshtml")
+                <br /><br/>
+                   
+            </div>
+        </div>
+        <div class="footer">
+           
+            <p>Chấp nhận thanh toán : <a href="#"><img src="/Images/thanhtoan/visa.jpg"/></a><a href="#"><img src="/Images/thanhtoan/v5.jpg" /></a><a href="#"><img src="/Images/thanhtoan/master.jpg" /></a><a href="#"><img src="/Images/thanhtoan/8.jpg" /></a><a href="#"><img src="/Images/thanhtoan/7.jpg" /></a><a href="#"><img src="/Images/thanhtoan/6.jpg" /></a><a href="#"><img src="/Images/thanhtoan/10.jpg" /></a></p>
+            <p>Design by Vi Thùy Dương</p>
+            <p>Email : vithuyduong@gmail.com</p>
+        </div>
+    </div>
+    <script src="/Assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/Assets/client/js/bootstrap.min.js"></script>
+    <script src="/Assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="/Assets/client/js/search.js"></script>
+    <script>
+        $(function () {
+            $(".jqueryui-marker-datepicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeYear: true,
+                showOn: "button"
+            }).css("display", "inline-block")
+            .next("button").button({
+                icons: { primary: "ui-icon-calendar" },
+                label: "Select a date",
+                text: false
+            });
+        })
+    </script>
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

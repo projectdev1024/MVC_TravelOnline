@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Tour của tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var tourdangxuly = (List<Models.ViewModel.DatTourViewModel>)ViewBag.TourChuaThanhToan;
+}
+
+<h3 style="color:#ff6a00">TOUR CỦA TÔI</h3>
+<legend></legend>
+@{
+    if (tourdangxuly.Count == 0)
+    {
+        <div class="alert alert-info">
+            Hiện bạn chưa đặt tour nào
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <strong>Chú ý</strong> : Tour bạn đã đặt đang chờ xác nhận thanh toán , bạn sẽ không thể đặt thêm tour khác
+        </div>
+    }
+}
+<div class="row">
+    <div class="col-lg-12">
+@foreach (var item in tourdangxuly)
+  {
+    if (item.dathanhtoan==false)
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tên tour</th>                  
+                    <th colspan="2">@item.tentour</th>
+                    <th>Ngày đặt</th>
+                    <th>@item.ngaydattour.ToString("dd-MM-yyyy")</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td width="150px">Ngày khởi hành</td>
+                    <td>@item.ngaykhoihanh.ToString("dd-MM-yyyy")</td>
+                    <td>Ngày kết thúc</td>
+                    <td>@item.ngayketthuc.ToString("dd-MM-yyyy")</td>
+                  
+                </tr>
+                <tr>
+                    <td width="150px">Số người lớn</td>
+                    <td>@item.songuoilon</td>
+                    <td>Số trẻ em</td>
+                    <td>@item.sotreem</td>
+                </tr>
+                <tr>
+                    <td width="150px">Tổng tiền</td>
+                    <td>@item.tongtien</td>
+                    <td>Tình trạng</td>
+                    <td>Đang xử lý</td>
+                </tr>
+            </tbody>
+           
+        </table>
+    
+            <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th colspan="3">Thông tin người đại diện</th>                  
+              
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td width="150px">Họ tên</td>
+                    <td>@item.hoten</td>
+                    <td>Số CMT</td>
+                    <td>@item.cmt</td>
+                  
+                </tr>
+                <tr>
+                    <td width="150px">Địa chỉ</td>
+                    <td>@item.diachi</td>
+                    <td>Email</td>
+                    <td>@item.email</td>
+                </tr>
+                <tr>
+                    <td width="150px">Số điện thoại</td>
+                    <td>@item.dienthoai</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+           
+        </table>
+    <br/>
+    <center><a class="btn btn-info" href="/khach-hang/sua-tour-@item.madattour">Sửa tour</a>    
+        <a href="/khach-hang/huy-tour-@item.madattour" class="btn btn-info" onclick="return confirm('Bạn có muốn hủy tour ?');">Hủy tour</a>
+       
+        </center>
+    }
+  }
+
+    </div>
+</div>

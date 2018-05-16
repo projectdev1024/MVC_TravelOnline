@@ -1,0 +1,24 @@
+﻿
+
+    <table width="320" border="0" style="border-left-width:1px;border-left-style:solid;border-left-color:#d7d7d7;">
+    <tr style="background:#0094ff;color:#ffffff; height:30px">
+        <td colspan="2" align="center">THỐNG KÊ WEBSITE</td>
+    </tr>
+    <tr style="height:40px">
+
+        <td width="200px" style="padding-left:20px;font-family:Arial;"><img src="/Images/online.jpg" /><strong> Khách trực tuyến</strong></td>
+        <td>
+            @Session["online"].ToString()
+        </td>
+    </tr>
+    <tr style="height:30px">
+
+        <td width="200px" style="padding-left:20px;font-family:Arial;"><img src="/Images/vaoweb.jpg" /><strong> Tổng truy cập</strong></td>
+        <td>
+
+            @HttpContext.Current.Application["count_visit"].ToString()
+
+        </td>
+    </tr>
+
+</table>

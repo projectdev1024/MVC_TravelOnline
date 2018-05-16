@@ -1,0 +1,53 @@
+﻿@model TravelOnline.Models.LoginModel
+
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="color:#ff6a00">ĐĂNG NHẬP</h3>
+@if (Session["Register"]!=null)
+{
+    <div class="alert alert-success"><strong>Đăng ký thành công!</strong>. Vui lòng đăng nhập</div>
+    Session["Register"] = null;
+}
+    @using (Html.BeginForm("Login", "KhachHang", new { ReturnUrl = ViewBag.ReturnUrl },
+            FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <fieldset>
+        <legend></legend>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-3">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Tài khoản:</label>
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
+                    <div class="col-sm-4">
+                        @Html.PasswordFor(model => model.PassWord, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <p><a href="/khach-hang/quen-mat-khau">Quên mật khẩu?</a></p>
+                        <button type="submit" class="btn btn-default">Đăng nhập</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-0 col-sm-10">
+                        
+                        <p>Bạn chưa có tài khoản ? Bấm vào <a href="/khach-hang/dang-ky">đây</a> để đăng ký</p>
+                    </div>
+                </div>
+            
+                </div></div>
+    </fieldset>
+    }
+
+           
